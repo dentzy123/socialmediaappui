@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF071217),
         colorScheme: ColorScheme.dark(primary: const Color(0xFF1DB954)),
+        debugShowCheckedModeBanner: false,
         textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Inter'),
       ),
       home: const HomePage(),
