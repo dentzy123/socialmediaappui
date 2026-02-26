@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +11,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SocialHub',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF6C40FF),
@@ -20,137 +18,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFF121212),
+        brightness: Brightness.dark,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
-  }
-}
-
-// ==================== MOCK DATA ====================
-class MockData {
-  static final Random _random = Random();
-  
-  static final List<String> userNames = [
-    'Emma Johnson', 'Liam Smith', 'Olivia Brown', 'Noah Williams', 
-    'Ava Davis', 'Ethan Miller', 'Sophia Wilson', 'Mason Moore',
-    'Isabella Taylor', 'James Anderson', 'Mia Thomas', 'Benjamin Jackson',
-    'Charlotte White', 'Lucas Harris', 'Amelia Martin', 'Henry Garcia',
-    'Harper Robinson', 'Alexander Clark', 'Evelyn Lewis', 'Daniel Walker'
-  ];
-  
-  // Random profile picture URLs (using free avatar service)
-  static final List<String> profilePictures = [
-    'https://i.pravatar.cc/150?img=1',
-    'https://i.pravatar.cc/150?img=2',
-    'https://i.pravatar.cc/150?img=3',
-    'https://i.pravatar.cc/150?img=4',
-    'https://i.pravatar.cc/150?img=5',
-    'https://i.pravatar.cc/150?img=6',
-    'https://i.pravatar.cc/150?img=7',
-    'https://i.pravatar.cc/150?img=8',
-    'https://i.pravatar.cc/150?img=9',
-    'https://i.pravatar.cc/150?img=10',
-    'https://i.pravatar.cc/150?img=11',
-    'https://i.pravatar.cc/150?img=12',
-    'https://i.pravatar.cc/150?img=13',
-    'https://i.pravatar.cc/150?img=14',
-    'https://i.pravatar.cc/150?img=15',
-    'https://i.pravatar.cc/150?img=16',
-    'https://i.pravatar.cc/150?img=17',
-    'https://i.pravatar.cc/150?img=18',
-    'https://i.pravatar.cc/150?img=19',
-    'https://i.pravatar.cc/150?img=20',
-  ];
-  
-  // Random post image URLs (using picsum for random photos)
-  static final List<String> postImages = [
-    'https://picsum.photos/seed/post1/800/600',
-    'https://picsum.photos/seed/post2/800/600',
-    'https://picsum.photos/seed/post3/800/600',
-    'https://picsum.photos/seed/post4/800/600',
-    'https://picsum.photos/seed/post5/800/600',
-    'https://picsum.photos/seed/post6/800/600',
-    'https://picsum.photos/seed/post7/800/600',
-    'https://picsum.photos/seed/post8/800/600',
-    'https://picsum.photos/seed/post9/800/600',
-    'https://picsum.photos/seed/post10/800/600',
-  ];
-  
-  static final List<String> captions = [
-    'Just launched my new project! 🚀 Really excited to share what I\'ve been working on.',
-    'Beautiful day for an adventure! 🌟 #blessed #life',
-    'Coffee and good vibes only ☕✨',
-    'Making memories that last forever ❤️',
-    'New beginnings, new adventures! 🌈',
-    'Living my best life ✨',
-    'Grateful for every moment 🙏',
-    'Dream big, work hard, stay focused 💪',
-    'Creating my own sunshine ☀️',
-    'Adventure awaits! 🌍'
-  ];
-  
-  static String getRandomName() {
-    return userNames[_random.nextInt(userNames.length)];
-  }
-  
-  static String getRandomProfilePicture() {
-    return profilePictures[_random.nextInt(profilePictures.length)];
-  }
-  
-  static String getRandomPostImage() {
-    return postImages[_random.nextInt(postImages.length)];
-  }
-  
-  static String getRandomCaption() {
-    return captions[_random.nextInt(captions.length)];
-  }
-  
-  static int getRandomTime() {
-    return _random.nextInt(23) + 1;
-  }
-  
-  static int getRandomLikes() {
-    return _random.nextInt(5000) + 100;
-  }
-  
-  static int getRandomComments() {
-    return _random.nextInt(200) + 10;
-  }
-  
-  static int getRandomShares() {
-    return _random.nextInt(100) + 5;
-  }
-  
-  static List<String> getShuffledNames(int count) {
-    final shuffled = List<String>.from(userNames)..shuffle(_random);
-    return shuffled.take(count).toList();
-  }
-  
-  static List<String> getShuffledProfilePictures(int count) {
-    final shuffled = List<String>.from(profilePictures)..shuffle(_random);
-    return shuffled.take(count).toList();
-  }
-  
-  static List<String> getShuffledPostImages(int count) {
-    final shuffled = List<String>.from(postImages)..shuffle(_random);
-    return shuffled.take(count).toList();
-  }
-  
-  static final List<List<Color>> gradients = [
-    [const Color(0xFFFF6B6B), const Color(0xFFFF8E72)],
-    [const Color(0xFF4ECDC4), const Color(0xFF44A5A5)],
-    [const Color(0xFF95E1D3), const Color(0xFFF38181)],
-    [const Color(0xFFFA8072), const Color(0xFFFF6B9D)],
-    [const Color(0xFFAE67FA), const Color(0xFFF49867)],
-    [const Color(0xFF667EEA), const Color(0xFF764BA2)],
-    [const Color(0xFFF093FB), const Color(0xFFF5576C)],
-    [const Color(0xFF4FACFE), const Color(0xFF00F2FE)],
-    [const Color(0xFFFA709A), const Color(0xFFFECC89)],
-    [const Color(0xFF30CFD0), const Color(0xFF330867)],
-  ];
-  
-  static List<Color> getRandomGradient() {
-    return gradients[_random.nextInt(gradients.length)];
   }
 }
 
@@ -189,33 +61,44 @@ class _MyHomePageState extends State<MyHomePage> {
         child: BottomNavigationBar(
           currentIndex: _selectedIndex,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color(0xFF1E1E1E),
           elevation: 0,
-          selectedItemColor: const Color(0xFF6C40FF),
+          selectedItemColor: const Color(0xFF9B59FF),
           unselectedItemColor: Colors.grey[600],
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: _buildNavIcon(Icons.home_rounded, 0),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.explore_rounded),
+              icon: _buildNavIcon(Icons.explore_rounded, 1),
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.play_circle_fill),
+              icon: _buildNavIcon(Icons.play_circle_fill, 2),
               label: 'Reels',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_rounded),
+              icon: _buildNavIcon(Icons.person_rounded, 3),
               label: 'Profile',
             ),
           ],
-          onTap: (index) {
-            // UI only - no navigation
-          },
         ),
       ),
+    );
+  }
+
+  Widget _buildNavIcon(IconData icon, int index) {
+    bool isSelected = _selectedIndex == index;
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: isSelected
+            ? const Color(0xFF9B59FF).withOpacity(0.2)
+            : Colors.transparent,
+      ),
+      child: Icon(icon),
     );
   }
 }
@@ -226,17 +109,13 @@ class FeedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final randomNames = MockData.getShuffledNames(6);
-    final randomPics = MockData.getShuffledProfilePictures(6);
-    final randomPostImages = MockData.getShuffledPostImages(6);
-    
     return CustomScrollView(
       slivers: [
         // Custom App Bar
         SliverAppBar(
           floating: true,
           snap: true,
-          backgroundColor: const Color(0xFF121212),
+          backgroundColor: const Color(0xFF1E1E1E),
           elevation: 0,
           expandedHeight: 0,
           toolbarHeight: 70,
@@ -247,9 +126,18 @@ class FeedPage extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF6C40FF), Color(0xFF9B59FF)],
+                  gradient: LinearGradient(
+                    colors: [
+                      const Color(0xFF6C40FF),
+                      const Color(0xFF9B59FF).withOpacity(0.8),
+                    ],
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF6C40FF).withOpacity(0.4),
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
                 child: const Icon(Icons.hub_rounded,
                     color: Colors.white, size: 24),
@@ -272,20 +160,20 @@ class FeedPage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF6C40FF).withOpacity(0.1),
+                color: const Color(0xFF9B59FF).withOpacity(0.2),
               ),
               child: const Icon(Icons.notifications_none_rounded,
-                  color: Color(0xFF6C40FF)),
+                  color: Color(0xFF9B59FF)),
             ),
             Container(
               margin: const EdgeInsets.only(right: 16),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF6C40FF).withOpacity(0.1),
+                color: const Color(0xFF9B59FF).withOpacity(0.2),
               ),
               child: const Icon(Icons.mail_outline_rounded,
-                  color: Color(0xFF6C40FF)),
+                  color: Color(0xFF9B59FF)),
             ),
           ],
         ),
@@ -296,7 +184,7 @@ class FeedPage extends StatelessWidget {
         // Posts Feed
         SliverList(
           delegate: SliverChildBuilderDelegate(
-            (context, index) => _buildPostCard(index, randomNames[index], randomPics[index], randomPostImages[index]),
+            (context, index) => _buildPostCard(index),
             childCount: 6,
           ),
         ),
@@ -305,24 +193,21 @@ class FeedPage extends StatelessWidget {
   }
 
   Widget _buildStoriesSection() {
-    final randomNames = MockData.getShuffledNames(8);
-    final randomPics = MockData.getShuffledProfilePictures(8);
-    
     return Container(
-      color: const Color(0xFF121212),
+      color: const Color(0xFF1E1E1E),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
       margin: const EdgeInsets.only(bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
             child: Text(
-              'Stories',
+              'Your Stories',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Colors.grey[300],
                 letterSpacing: 0.3,
               ),
             ),
@@ -331,12 +216,7 @@ class FeedPage extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                // My Day - First story
-                _buildMyDayStory(),
-                // Other random users with real pictures
-                ...List.generate(7, (index) => _buildStoryItem(index, randomNames[index], randomPics[index])),
-              ],
+              children: List.generate(7, (index) => _buildStoryItem(index)),
             ),
           ),
         ],
@@ -344,117 +224,158 @@ class FeedPage extends StatelessWidget {
     );
   }
 
-  Widget _buildMyDayStory() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      child: Column(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: const LinearGradient(
-                colors: [Color(0xFF6C40FF), Color(0xFF9B59FF)],
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFF6C40FF).withOpacity(0.4),
-                  blurRadius: 15,
-                  offset: const Offset(0, 5),
-                ),
-              ],
-            ),
-            child: Stack(
-              children: [
-                Center(
-                  child: Container(
-                    width: 64,
-                    height: 64,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: const Color(0xFF121212), width: 3),
-                    ),
-                    child: const Icon(Icons.add_rounded,
-                        color: Colors.white, size: 32),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            'My Day',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ),
-    );
-  }
+  Widget _buildStoryItem(int index) {
+    // Real profile images from Unsplash
+    final storyImages = [
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150',
+    ];
 
-  Widget _buildStoryItem(int index, String name, String profilePic) {
+    final storyNames = [
+      'Emma Wilson',
+      'James Brown',
+      'Olivia Davis',
+      'William Miller',
+      'Sophia Garcia',
+      'Benjamin Lee',
+      'Ava Martinez',
+    ];
+
+    final gradients = [
+      [const Color(0xFFFF6B6B), const Color(0xFFFF8E72)],
+      [const Color(0xFF4ECDC4), const Color(0xFF44A5A5)],
+      [const Color(0xFF95E1D3), const Color(0xFFF38181)],
+      [const Color(0xFFFA8072), const Color(0xFFFF6B9D)],
+      [const Color(0xFFAE67FA), const Color(0xFFF49867)],
+      [const Color(0xFF6C40FF), const Color(0xFF9B59FF)],
+      [const Color(0xFF00D9FF), const Color(0xFF00FF94)],
+    ];
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         children: [
+          // Story with gradient border
           Container(
-            width: 70,
-            height: 70,
+            width: 76,
+            height: 76,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(
-                color: const Color(0xFF6C40FF),
-                width: 3,
+              gradient: LinearGradient(
+                colors: gradients[index],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF6C40FF).withOpacity(0.4),
+                  color: gradients[index][0].withOpacity(0.4),
                   blurRadius: 15,
-                  offset: const Offset(0, 5),
+                  offset: const Offset(0, 4),
                 ),
               ],
             ),
-            child: ClipOval(
-              child: Image.network(
-                profilePic,
-                width: 64,
-                height: 64,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Icon(
-                    Icons.person_rounded,
-                    color: Colors.white,
-                    size: 32,
-                  );
-                },
+            padding: const EdgeInsets.all(3),
+            child: Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: const Color(0xFF1E1E1E),
+                  width: 3,
+                ),
+              ),
+              child: ClipOval(
+                child: Image.network(
+                  storyImages[index],
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Container(
+                      color: const Color(0xFF2A2A2A),
+                      child: const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Color(0xFF9B59FF),
+                        ),
+                      ),
+                    );
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: const Color(0xFF2A2A2A),
+                      child: const Icon(Icons.person, color: Colors.white54),
+                    );
+                  },
+                ),
               ),
             ),
           ),
           const SizedBox(height: 6),
-          Text(
-            name.split(' ').first,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
+          SizedBox(
+            width: 72,
+            child: Text(
+              storyNames[index],
+              style: TextStyle(
+                color: Colors.grey[300],
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildPostCard(int index, String userName, String profilePic, String postImage) {
+  Widget _buildPostCard(int index) {
+    // Real post images from Unsplash
+    final postImages = [
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800',
+      'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800',
+      'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800',
+      'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800',
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+    ];
+
+    final postNames = [
+      'Sophia Martinez',
+      'Daniel Thompson',
+      'Olivia Carter',
+      'Michael Reyes',
+      'Isabella Cruz',
+      'Alexander Kim',
+    ];
+
+    final postUsernames = [
+      '@sophiamartinez',
+      '@danielthompson',
+      '@oliviacarter',
+      '@michaelreyes',
+      '@isabellacruz',
+      '@alexanderkim',
+    ];
+
+    final captions = [
+      'Spent the weekend hiking in the mountains 🌄 Nature truly heals the soul.',
+      'Golden hour at the beach never gets old ✨ #blessed #ocean',
+      'City lights and late nights 🌃 Nothing beats this view!',
+      'Adventure awaits around every corner 🏔️ What\'s your next destination?',
+      'Coffee and good vibes only ☕ Sometimes the simplest moments are the best.',
+      'Lost in nature, found myself 🌲 The mountains are calling!',
+    ];
+
+    final postTimes = ['2h', '4h', '6h', '8h', '12h', '1d'];
+
     return Container(
       margin: const EdgeInsets.only(bottom: 12, left: 12, right: 12),
       decoration: BoxDecoration(
@@ -476,18 +397,28 @@ class FeedPage extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             child: Row(
               children: [
+                // Profile Image
                 Container(
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: const Color(0xFF6C40FF), width: 2),
+                    gradient: LinearGradient(
+                      colors: [
+                        const Color(0xFF6C40FF),
+                        const Color(0xFF9B59FF),
+                      ],
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF6C40FF).withOpacity(0.4),
+                        blurRadius: 12,
+                      ),
+                    ],
                   ),
                   child: ClipOval(
                     child: Image.network(
-                      profilePic,
-                      width: 46,
-                      height: 46,
+                      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(Icons.person_rounded,
@@ -502,7 +433,7 @@ class FeedPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        userName,
+                        postNames[index],
                         style: const TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 14,
@@ -510,7 +441,7 @@ class FeedPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${MockData.getRandomTime()}h ago • Public',
+                        '${postTimes[index]} ago • Public',
                         style: TextStyle(
                           color: Colors.grey[500],
                           fontSize: 12,
@@ -535,10 +466,10 @@ class FeedPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Text(
-              MockData.getRandomCaption(),
+              captions[index],
               style: const TextStyle(
                 fontSize: 13,
-                color: Colors.white70,
+                color: Colors.white,
                 height: 1.5,
               ),
             ),
@@ -549,31 +480,78 @@ class FeedPage extends StatelessWidget {
             width: double.infinity,
             height: 280,
             margin: const EdgeInsets.symmetric(horizontal: 14),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 15,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: Image.network(
-                postImage,
-                width: double.infinity,
-                height: 280,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.purple, Colors.blue],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+              child: Stack(
+                children: [
+                  Image.network(
+                    postImages[index],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Container(
+                        color: const Color(0xFF2A2A2A),
+                        child: const Center(
+                          child: CircularProgressIndicator(
+                            color: Color(0xFF9B59FF),
+                          ),
+                        ),
+                      );
+                    },
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: const Color(0xFF2A2A2A),
+                        child: const Center(
+                          child: Icon(Icons.image_rounded,
+                              size: 70, color: Colors.white30),
+                        ),
+                      );
+                    },
+                  ),
+                  // Like badge overlay
+                  Positioned(
+                    top: 12,
+                    right: 12,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.favorite_rounded,
+                              size: 14, color: Colors.white),
+                          SizedBox(width: 4),
+                          Text(
+                            'Like',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.image_rounded,
-                        size: 70,
-                        color: Colors.white54,
-                      ),
-                    ),
-                  );
-                },
+                  ),
+                ],
               ),
             ),
           ),
@@ -584,9 +562,9 @@ class FeedPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildEngagementStat(Icons.favorite_rounded, '${MockData.getRandomLikes()}'),
-                _buildEngagementStat(Icons.comment_rounded, '${MockData.getRandomComments()}'),
-                _buildEngagementStat(Icons.share_rounded, '${MockData.getRandomShares()}'),
+                _buildEngagementStat(Icons.favorite_rounded, '${234 + index * 50}'),
+                _buildEngagementStat(Icons.comment_rounded, '${12 + index * 5}'),
+                _buildEngagementStat(Icons.share_rounded, '${3 + index * 2}'),
               ],
             ),
           ),
@@ -612,14 +590,14 @@ class FeedPage extends StatelessWidget {
   Widget _buildEngagementStat(IconData icon, String count) {
     return Row(
       children: [
-        Icon(icon, size: 16, color: const Color(0xFF6C40FF)),
+        Icon(icon, size: 16, color: const Color(0xFF9B59FF)),
         const SizedBox(width: 4),
         Text(
           count,
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w600,
-            color: Colors.white70,
+            color: Colors.white,
           ),
         ),
       ],
@@ -637,6 +615,10 @@ class FeedPage extends StatelessWidget {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.transparent,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -663,12 +645,10 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final randomPostImages = MockData.getShuffledPostImages(18);
-    
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF121212),
+        backgroundColor: const Color(0xFF1E1E1E),
         elevation: 0,
         title: TextField(
           style: const TextStyle(color: Colors.white),
@@ -680,8 +660,8 @@ class ExplorePage extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
             filled: true,
-            fillColor: const Color(0xFF2D2D2D),
-            prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFF6C40FF)),
+            fillColor: const Color(0xFF2A2A2A),
+            prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFF9B59FF)),
             contentPadding: EdgeInsets.zero,
           ),
         ),
@@ -696,34 +676,74 @@ class ExplorePage extends StatelessWidget {
         ),
         itemCount: 18,
         itemBuilder: (context, index) {
+          final gradients = [
+            [const Color(0xFF667EEA), const Color(0xFF764BA2)],
+            [const Color(0xFFF093FB), const Color(0xFFF5576C)],
+            [const Color(0xFF4FACFE), const Color(0xFF00F2FE)],
+            [const Color(0xFFFA709A), const Color(0xFFFECC89)],
+            [const Color(0xFF30CFD0), const Color(0xFF330867)],
+            [const Color(0xFFA8EDEA), const Color(0xFFFED6E3)],
+          ];
+
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: Image.network(
-                randomPostImages[index],
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.purple, Colors.blue],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.image_rounded,
-                        size: 50,
-                        color: Colors.white54,
-                      ),
-                    ),
-                  );
-                },
+              gradient: LinearGradient(
+                colors: gradients[index % gradients.length],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: gradients[index % gradients.length][0].withOpacity(0.3),
+                  blurRadius: 15,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
+            child: Stack(
+              children: [
+                Center(
+                  child: Icon(
+                    Icons.image_rounded,
+                    size: 50,
+                    color: Colors.white.withOpacity(0.4),
+                  ),
+                ),
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.favorite_rounded,
+                          size: 12,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(width: 3),
+                        Text(
+                          '${500 + index * 100}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },
@@ -733,45 +753,35 @@ class ExplorePage extends StatelessWidget {
 }
 
 // ==================== REELS PAGE ====================
-class ReelsPage extends StatefulWidget {
+class ReelsPage extends StatelessWidget {
   const ReelsPage({super.key});
-
-  @override
-  State<ReelsPage> createState() => _ReelsPageState();
-}
-
-class _ReelsPageState extends State<ReelsPage> {
-  late PageController _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF121212),
+        backgroundColor: const Color(0xFF1E1E1E),
         elevation: 0,
         title: Row(
           children: [
             Container(
               width: 30,
               height: 30,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
-                  colors: [Color(0xFF6C40FF), Color(0xFF9B59FF)],
+                  colors: [
+                    const Color(0xFF6C40FF),
+                    const Color(0xFF9B59FF),
+                  ],
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF6C40FF).withOpacity(0.4),
+                    blurRadius: 8,
+                  ),
+                ],
               ),
               child: const Icon(Icons.play_circle_filled,
                   color: Colors.white, size: 18),
@@ -790,7 +800,6 @@ class _ReelsPageState extends State<ReelsPage> {
       ),
       body: PageView.builder(
         scrollDirection: Axis.vertical,
-        controller: _pageController,
         itemCount: 10,
         itemBuilder: (context, index) {
           return _buildReelItem(index);
@@ -800,20 +809,31 @@ class _ReelsPageState extends State<ReelsPage> {
   }
 
   Widget _buildReelItem(int index) {
-    final gradient = MockData.getRandomGradient();
-    final userName = MockData.getRandomName();
-    final profilePic = MockData.getRandomProfilePicture();
-    final postImage = MockData.getRandomPostImage();
+    final gradients = [
+      [const Color(0xFF667EEA), const Color(0xFF764BA2)],
+      [const Color(0xFFF093FB), const Color(0xFFF5576C)],
+      [const Color(0xFF4FACFE), const Color(0xFF00F2FE)],
+      [const Color(0xFFFA709A), const Color(0xFFFECC89)],
+      [const Color(0xFF30CFD0), const Color(0xFF330867)],
+    ];
+
+    final reelImages = [
+      'https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800',
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800',
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800',
+    ];
 
     return Stack(
       children: [
-        // Video area - using real image
+        // Video area with real image
         Container(
           decoration: BoxDecoration(
-            color: Colors.grey[900],
+            color: const Color(0xFF1E1E1E),
           ),
           child: Image.network(
-            postImage,
+            reelImages[index % reelImages.length],
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -821,7 +841,7 @@ class _ReelsPageState extends State<ReelsPage> {
               return Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: gradient,
+                    colors: gradients[index % gradients.length],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -859,6 +879,21 @@ class _ReelsPageState extends State<ReelsPage> {
             },
           ),
         ),
+        // Gradient overlay
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black.withOpacity(0.3),
+                Colors.black.withOpacity(0.1),
+                Colors.black.withOpacity(0.6),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: const [0.0, 0.5, 1.0],
+            ),
+          ),
+        ),
         // Side Actions
         Positioned(
           right: 16,
@@ -879,16 +914,6 @@ class _ReelsPageState extends State<ReelsPage> {
           left: 0,
           right: 0,
           child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.black.withOpacity(0),
-                  Colors.black.withOpacity(0.8),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -900,25 +925,26 @@ class _ReelsPageState extends State<ReelsPage> {
                       height: 42,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 2),
-                      ),
-                      child: ClipOval(
-                        child: Image.network(
-                          profilePic,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return const Icon(Icons.person_rounded,
-                                color: Colors.white, size: 24);
-                          },
+                        gradient: LinearGradient(
+                          colors: gradients[index % gradients.length],
                         ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: gradients[index % gradients.length][0]
+                                .withOpacity(0.4),
+                            blurRadius: 12,
+                          ),
+                        ],
                       ),
+                      child: const Icon(Icons.person_rounded,
+                          color: Colors.white, size: 24),
                     ),
                     const SizedBox(width: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '@${userName.toLowerCase().replaceAll(' ', '_')}',
+                          '@${['sophiamartinez', 'danielthompson', 'oliviacarter', 'michaelreyes', 'isabellacruz'][index % 5]}',
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -982,6 +1008,12 @@ class _ReelsPageState extends State<ReelsPage> {
             shape: BoxShape.circle,
             color: Colors.white.withOpacity(0.2),
             border: Border.all(color: Colors.white, width: 1),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                blurRadius: 8,
+              ),
+            ],
           ),
           child: Icon(icon, color: Colors.white, size: 24),
         ),
@@ -1005,15 +1037,13 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final randomPostImages = MockData.getShuffledPostImages(9);
-    
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       body: CustomScrollView(
         slivers: [
           // App Bar
           SliverAppBar(
-            backgroundColor: const Color(0xFF121212),
+            backgroundColor: const Color(0xFF1E1E1E),
             elevation: 0,
             title: const Text(
               'Profile',
@@ -1026,20 +1056,14 @@ class ProfilePage extends StatelessWidget {
             actions: [
               Container(
                 margin: const EdgeInsets.only(right: 16),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: const Color(0xFF6C40FF).withOpacity(0.1),
-                      ),
-                      child: const Icon(Icons.settings_outlined,
-                          color: Color(0xFF6C40FF)),
-                    ),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: const Color(0xFF9B59FF).withOpacity(0.2),
                   ),
+                  child: const Icon(Icons.settings_outlined,
+                      color: Color(0xFF9B59FF)),
                 ),
               ),
             ],
@@ -1047,7 +1071,7 @@ class ProfilePage extends StatelessWidget {
           // Profile Header
           SliverToBoxAdapter(
             child: Container(
-              color: const Color(0xFF121212),
+              color: const Color(0xFF1E1E1E),
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
@@ -1066,12 +1090,20 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Icon(Icons.person_rounded,
-                        size: 60, color: Colors.white),
+                    child: ClipOval(
+                      child: Image.network(
+                        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(Icons.person_rounded,
+                              size: 60, color: Colors.white);
+                        },
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   const Text(
-                    'Your Name',
+                    'Daniel Thompson',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
@@ -1079,18 +1111,18 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    '@yourhandle',
+                    '@danielthompson',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.grey,
+                      color: Color(0xFF9B59FF),
                     ),
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    'Creative Designer | Content Creator | Traveler',
+                    'Photographer | Content Creator | Adventure Seeker',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Colors.grey,
+                      color: Colors.white70,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -1140,7 +1172,7 @@ class ProfilePage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: const Color(0xFF6C40FF),
+                              color: const Color(0xFF9B59FF),
                               width: 1.5,
                             ),
                             borderRadius: BorderRadius.circular(12),
@@ -1149,7 +1181,7 @@ class ProfilePage extends StatelessWidget {
                             child: Text(
                               'Share',
                               style: TextStyle(
-                                color: Color(0xFF6C40FF),
+                                color: Color(0xFF9B59FF),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1165,18 +1197,18 @@ class ProfilePage extends StatelessWidget {
           // Highlights
           SliverToBoxAdapter(
             child: Container(
-              color: const Color(0xFF121212),
+              color: const Color(0xFF1E1E1E),
               padding: const EdgeInsets.all(16),
               margin: const EdgeInsets.only(top: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Highlights',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      color: Colors.grey[300],
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -1201,13 +1233,9 @@ class ProfilePage extends StatelessWidget {
                             gradient: LinearGradient(
                               colors: gradients[index],
                             ),
-                            border: Border.all(
-                              color: const Color(0xFF2D2D2D),
-                              width: 2,
-                            ),
                             boxShadow: [
                               BoxShadow(
-                                color: gradients[index][0].withOpacity(0.2),
+                                color: gradients[index][0].withOpacity(0.3),
                                 blurRadius: 10,
                               ),
                             ],
@@ -1223,7 +1251,7 @@ class ProfilePage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  'Story ${index + 1}',
+                                  ['Travel', 'Food', 'Nature', 'Life'][index],
                                   style: const TextStyle(
                                     fontSize: 10,
                                     color: Colors.white,
@@ -1244,20 +1272,20 @@ class ProfilePage extends StatelessWidget {
           // Posts Grid
           SliverToBoxAdapter(
             child: Container(
-              color: const Color(0xFF121212),
+              color: const Color(0xFF1E1E1E),
               margin: const EdgeInsets.only(top: 12),
               padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: Text(
                       'Posts',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: Colors.white,
+                        color: Colors.grey[300],
                       ),
                     ),
                   ),
@@ -1272,33 +1300,36 @@ class ProfilePage extends StatelessWidget {
                     ),
                     itemCount: 9,
                     itemBuilder: (context, index) {
+                      final gradients = [
+                        [const Color(0xFF667EEA), const Color(0xFF764BA2)],
+                        [const Color(0xFFF093FB), const Color(0xFFF5576C)],
+                        [const Color(0xFF4FACFE), const Color(0xFF00F2FE)],
+                        [const Color(0xFFFA709A), const Color(0xFFFECC89)],
+                        [const Color(0xFF30CFD0), const Color(0xFF330867)],
+                        [const Color(0xFFA8EDEA), const Color(0xFFFED6E3)],
+                      ];
+
                       return Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            colors: gradients[index % gradients.length],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: gradients[index % gradients.length][0]
+                                  .withOpacity(0.2),
+                              blurRadius: 12,
+                            ),
+                          ],
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: Image.network(
-                            randomPostImages[index],
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [Colors.purple, Colors.blue],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                  ),
-                                ),
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.image_rounded,
-                                    size: 32,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              );
-                            },
+                        child: Center(
+                          child: Icon(
+                            Icons.image_rounded,
+                            size: 32,
+                            color: Colors.white.withOpacity(0.4),
                           ),
                         ),
                       );
@@ -1328,9 +1359,9 @@ class ProfilePage extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 12,
-            color: Colors.grey,
+            color: Colors.grey[500],
             fontWeight: FontWeight.w500,
           ),
         ),
